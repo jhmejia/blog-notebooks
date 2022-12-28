@@ -6,6 +6,6 @@ note: it does NOT contain the raw data but it does have information on where to 
 
 Links: 
 
-* [LA City Crime Notebook](https://github.com/jhmejia/blog-notebooks/blob/main/la-crime/la-crime.ipynb) //
-  -[La City Crime Blog Post](https://blog.jhmejia.com/2022/12/using-matplotlib-and-scikit-learn-to.html)
+* [LA City Crime Notebook](https://github.com/jhmejia/blog-notebooks/blob/main/la-crime/la-crime.ipynb) 
+    - [La City Crime Blog Post](https://blog.jhmejia.com/2022/12/using-matplotlib-and-scikit-learn-to.html)
 
