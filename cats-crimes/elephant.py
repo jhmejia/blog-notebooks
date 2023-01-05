@@ -115,12 +115,15 @@ if __name__ == "__main__":
     for image in elephant:
         images.append(image["original"])
 
-    import shutil
-    for i, url in enumerate(images):
-        r = requests.get(url, stream=True)
-        if r.status_code == 200:
-            # be sure that it ends with .jpg or .png
-            with open('elephant_images/cat_image_' + str(i) + '.jpg', 'wb') as f:
-                r.raw.decode_content = True
-                shutil.copyfileobj(r.raw, f)
+    print(images)
+
+   
+    
+    for i, image in enumerate(images):
+        # open stream and write to file
+        with open(f"cats-crimes/elephant_images/elephant_image{i}.jpg", "wb") as file:
+            response = requests.get(image)
+            file.write(response.content)
+
+
 
