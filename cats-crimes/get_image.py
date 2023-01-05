@@ -25,3 +25,4 @@ cat_images = [x for x in cat_images if x.endswith('.jpg')]
 
 # Print the list of cat images
 print(cat_images)
+
