@@ -144,6 +144,10 @@ def download_image(folder_path: str, url: str, i: int, index: int, quantity: int
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             image_number = i + quantity * index
+            # Create the folder if it doesn't exist.
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+                
             with open(folder_path + str(image_number) + '.jpg', 'wb') as f:
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
