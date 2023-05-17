@@ -1,11 +1,34 @@
 # Blog Notebooks Repository
 
-This contains all the Jupyter notebooks and information in my blog, [linking tomorrow.](https://blog.jhmejia.com)
+This branch contains the notebooks for the data minining project. 
 
-note: it does NOT contain the raw data but it does have information on where to download them.
+In this branch, we will explore the data and build models to predict the number of injuries and fatalities caused by tornadoes in the United States.
 
 Links: 
 
-* [LA City Crime Notebook](https://github.com/jhmejia/blog-notebooks/blob/main/la-crime/la-crime.ipynb) 
-    - [La City Crime Blog Post](https://blog.jhmejia.com/2022/12/using-matplotlib-and-scikit-learn-to.html)
 
+### Data sources
+https://www.kaggle.com/datasets/danbraswell/us-tornado-dataset-1950-2021
+
+## Models:
+- [Polynomial w/ backwards elimination](polynomial.R)
+- [Support Vector Machine](svr.R)
+- [Random Forest Regression](randomforest.R)
+
+
+Data description:
+
+- yr: Year of tornado occurrence
+- mo: Month of tornado occurrence
+- dy: Day of tornado occurrence
+- date: Date of tornado occurrence (yyyy-mm-dd)
+- st: State of tornado occurrence
+- mag: F-scale magnitude of tornado (0-5) (-9 = unknown)
+- inj: Number of injuries
+- fat: Number of fatalities
+- slat: Starting latitude of tornado
+- slon: Starting longitude of tornado
+- elat: Ending latitude of tornado (0 = unknwon)
+- elon: Ending longitude of tornado (0 = unknown)
+- len: Length of tornado in miles (track length)
+- wid: Width of tornado in yards
