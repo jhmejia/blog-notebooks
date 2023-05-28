@@ -1,0 +1,55 @@
+This blog post will be about analyzing the use of regression models in the context of a real world problem.
+
+Our dataset is Tornadoes in the US from 1950-2021
+
+
+Overall: Tornadoes frequently occur in the United States, resulting in vast destruction and often injuries and death. They occur more often in the United States and Canada than in other countries with the most tornado-prone regions in the US being the central and southeastern states along a corridor sometimes called "Tornado Alley."
+A tornado's destructiveness is derived largely from the wind speed within it. For this reason, meteorologists rate tornadoes using a scale based on wind speed.
+
+Here is a link to the dataset: https://www.kaggle.com/danbraswell/us-tornado-dataset-1950-2021
+
+For context, let's visualize the data:
+
+![image.png](attachment:image.png)
+
+as a quick exploration of the data, we have the following columns:
+
+yr - 4-digit year
+mn - Month (1-12)
+dy - Day of month
+date - Datetime object (e.g. 1950-01-01)
+st - State where tornado originated; 2-digit abbreviation
+mag - F rating thru Jan 2007; EF rating after Jan 2007 (-9 if unknown rating)
+inj - Number of injuries
+fat - Number of fatalities
+slat - Starting latitude in decimal degrees
+slon - Starting longitude in decimal degrees
+elat - Ending latitude in decimal degrees (value of 0 if missing)
+elon - Ending longitude in decimal degrees (value of 0 if missing)
+len - Length of track in miles
+wid - Width in yards
+
+This is a lot of data, so we will be tuning this down later on. 
+
+Next, it's important to define the problem!
+
+The problem is to create a model that can accurately predict the number of victims, including injuries and fatalities, for each tornado, given other factors about the tornado as input. This requires the use of data mining and statistical techniques to analyze historical data on tornadoes and their associated damages. 
+The model's performance will be evaluated based on its ability to accurately predict the number of victims for a new, unseen tornado, using appropriate metrics such as mean squared error or R-squared.
+
+
+Now, let's get started!
+
+First, we will decide what PreProcessing we will need to do.
+
+We will need to do the following:
+- Encoded ‘date’ columns into ‘season’
+This is because we wanted to find ‘tornado season’ so used month. (dec-feb = winter, mar-may = spring, etc.) Year and day were unnecessary because those are not factors that affect the season.
+Year, Day, unnecessary. Wanted to find ‘tornado season’ so used month. (dec-feb = winter, mar-may = spring, etc.)
+Dropped ‘state’ column
+Irrelevant- lat, long, already exist.
+Replaced unknowns with average (tried mean, median- insignificant difference)
+(specifically, for ending lat, lon, magnitude)
+To get our statement, we made a new Y column
+Combined ‘fatalities’ and ‘injuries’ into ‘vic’ (VICTIMS)
+80% data into training
+No set seed- ran each model many times, took average r2
